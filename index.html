@@ -25,7 +25,7 @@
                 <span class="logo-text">ॐ नमः शिवाय</span>
                 <span class="logo-icon">🔱</span>
             </h1>
-            <ul class="nav-links">
+            <ul class="nav-links desktop-nav">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -33,54 +33,100 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <!-- <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fa-solid fa-moon"></i>
-            </button> -->
-
         </nav>
     </header>
+
+    <nav class="bottom-nav">
+        <a href="#about" class="bottom-nav-item">
+            <i class="fas fa-user"></i>
+            <span>About</span>
+        </a>
+        <a href="#skills" class="bottom-nav-item">
+            <i class="fas fa-code"></i>
+            <span>Skills</span>
+        </a>
+        <a href="#projects" class="bottom-nav-item">
+            <i class="fas fa-folder"></i>
+            <span>Projects</span>
+        </a>
+        <a href="#experience" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Work</span>
+        </a>
+        <a href="#education" class="bottom-nav-item">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Education</span>
+        </a>
+        <a href="#contact" class="bottom-nav-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
 
     <main>
 
         <section class="hero">
             <div class="hero-container">
-
                 <div class="hero-text">
-                    <h1>Hi, I'm <span>Bipin Poudel</span></h1>
-                    <h2>Software Engineer</h2>
-                    <p>
-                        I build fast, scalable, and modern web applications using
-                        .NET, Angular, and JavaScript.
+                    <div class="hero-greeting">
+                        <span class="wave">👋</span>
+                        <span class="greeting-text">Namaste, I'm</span>
+                    </div>
+                    <h1 class="hero-name">
+                        <span class="name-highlight">Bipin Poudel</span>
+                    </h1>
+                    <h2 class="hero-title">
+                        <span class="typing-text">Software Engineer</span>
+                        <span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-description">
+                        Crafting elegant solutions with <strong>.NET</strong>, <strong>Angular</strong>,
+                        and <strong>JavaScript</strong>. Passionate about building scalable web applications
+                        that make a difference.
                     </p>
 
-                    <!-- <div class="hero-buttons">
-                        <a href="#projects" class="btn secondary">View Projects</a>
-                    </div> -->
-
-                    <div class="hero-socials">
-                        <a href="https://github.com/sb-bipin" target="_blank" aria-label="GitHub">
-                            <i class="fa-brands fa-github"></i>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn-primary">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
                         </a>
-
-                        <a href="https://www.linkedin.com/in/sb-bipin-paudel" target="_blank" aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin"></i>
+                        <a href="#contact" class="btn-secondary">
+                            <span>Let's Connect</span>
                         </a>
-
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=imarkbipin@gmail.com"" target=" _blank"
-                            aria-label="Email">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-
-
                     </div>
 
+                    <div class="hero-socials">
+                        <a href="https://github.com/sb-bipin" target="_blank" aria-label="GitHub" class="social-link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sb-bipin-paudel" target="_blank" aria-label="LinkedIn"
+                            class="social-link">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=imarkbipin@gmail.com" target="_blank"
+                            aria-label="Email" class="social-link">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="hero-image">
-                    <img src="images/favicon.png" alt="Bipin Poudel Full Stack Developer">
+                    <div class="image-wrapper">
+                        <div class="image-background"></div>
+                        <img src="images/favicon.png" alt="Bipin Poudel Full Stack Developer">
+                        <div class="floating-badge badge-1">
+                            <i class="fa-brands fa-angular"></i>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="floating-badge badge-3">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                    </div>
                 </div>
-
             </div>
+
         </section>
 
 
@@ -414,7 +460,7 @@
                     <div class="timeline-item show">
                         <span class="timeline-dot"></span>
                         <div class="timeline-content">
-                            <h3>Bachelor in Information Technology</h3>
+                            <h3>Bachelor of Information Management (BIM)</h3>
                             <span class="company">Tribhuvan University</span>
                             <span class="date">2019 – 2024</span>
                             <p>
