@@ -1,3 +1,7 @@
+// Ensure page loads at top to prevent jumping to last section
+window.scrollTo(0, 0);
+history.replaceState(null, null, ' ');
+
 // Update footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -39,30 +43,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active navigation link highlight
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a, .bottom-nav-item');
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a, .bottom-nav-item");
 
-function activateNavLink() {
-    let scrollY = window.pageYOffset;
+const navObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
 
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") === `#${id}`
+                    );
+                });
+            }
+        });
+    },
+    {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0
+    }
+);
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
+sections.forEach(section => navObserver.observe(section));
 
-window.addEventListener('scroll', activateNavLink);
+
 
 // Contact form submission handling
 const contactForm = document.getElementById('contactForm');
@@ -90,3 +97,28 @@ if (contactForm) {
         }, 1500);
     });
 }
+
+const themeToggle = document.getElementById("themeToggle");
+const root = document.documentElement;
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+    root.setAttribute("data-theme", savedTheme);
+    themeToggle.innerHTML =
+        savedTheme === "dark"
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+}
+
+themeToggle.addEventListener("click", () => {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    const newTheme = isDark ? "light" : "dark";
+
+    root.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+
+    themeToggle.innerHTML =
+        newTheme === "dark"
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+});
